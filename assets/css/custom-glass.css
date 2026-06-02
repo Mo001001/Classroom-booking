@@ -1,0 +1,500 @@
+/* ==========================================
+   CUSTOM GLASS COMPONENTS
+   Classroom Booking System
+   Works with liquid-glass.css
+========================================== */
+
+/* ---------- FORM CONTAINER ---------- */
+
+.glass-form-container {
+
+    max-width: 750px;
+
+    margin: 40px auto;
+
+    padding: 40px;
+
+    border-radius: 28px;
+
+    background: rgba(255,255,255,0.12);
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255,255,255,0.18);
+
+    box-shadow:
+        0 8px 32px rgba(0,0,0,0.25);
+
+}
+
+/* ---------- FORM TITLE ---------- */
+
+.glass-form-title {
+
+    color: white;
+
+    font-size: 2rem;
+
+    font-weight: 700;
+
+    margin-bottom: 32px;
+
+    text-align: center;
+
+}
+
+/* ---------- FORM GROUP ---------- */
+
+.glass-group {
+
+    margin-bottom: 24px;
+
+}
+
+/* ---------- LABEL ---------- */
+
+.glass-label {
+
+    display: block;
+
+    color: rgba(255,255,255,0.9);
+
+    font-weight: 600;
+
+    margin-bottom: 10px;
+
+    font-size: 15px;
+
+}
+
+/* ---------- INPUTS ---------- */
+
+.glass-input,
+.glass-select,
+.glass-textarea {
+
+    width: 100%;
+
+    padding: 14px 18px;
+
+    border-radius: 16px;
+
+    border: 1px solid rgba(255,255,255,0.15);
+
+    background: rgba(255,255,255,0.08);
+
+    color: white;
+
+    font-size: 15px;
+
+    outline: none;
+
+    transition: all .3s ease;
+
+    backdrop-filter: blur(10px);
+
+    -webkit-backdrop-filter: blur(10px);
+
+}
+
+/* ---------- PLACEHOLDER ---------- */
+
+.glass-input::placeholder,
+.glass-textarea::placeholder {
+
+    color: rgba(255,255,255,0.45);
+
+}
+
+/* ---------- FOCUS EFFECT ---------- */
+
+.glass-input:focus,
+.glass-select:focus,
+.glass-textarea:focus {
+
+    border-color: #93c5fd;
+
+    background: rgba(255,255,255,0.14);
+
+    box-shadow:
+        0 0 0 4px rgba(147,197,253,0.12);
+
+}
+
+/* ---------- TEXTAREA ---------- */
+
+.glass-textarea {
+
+    min-height: 140px;
+
+    resize: vertical;
+
+}
+
+/* ---------- SELECT OPTION FIX ---------- */
+
+.glass-select option {
+
+    background: #1e293b;
+
+    color: white;
+
+}
+
+/* ---------- BUTTON ---------- */
+
+.glass-submit {
+
+    width: 100%;
+
+    border: none;
+
+    border-radius: 18px;
+
+    padding: 16px;
+
+    cursor: pointer;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(99,102,241,0.85),
+            rgba(168,85,247,0.85)
+        );
+
+    transition: all .3s ease;
+
+}
+
+.glass-submit:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 30px rgba(99,102,241,0.35);
+
+}
+
+/* ---------- SMALL BUTTON ---------- */
+
+.glass-btn-sm {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 10px 20px;
+
+    border-radius: 14px;
+
+    border: 1px solid rgba(255,255,255,0.18);
+
+    background: rgba(255,255,255,0.10);
+
+    color: white;
+
+    cursor: pointer;
+
+    transition: .3s ease;
+
+}
+
+.glass-btn-sm:hover {
+
+    background: rgba(255,255,255,0.18);
+
+}
+
+/* ---------- STATUS BADGES ---------- */
+
+.status-badge {
+
+    display: inline-block;
+
+    padding: 8px 14px;
+
+    border-radius: 999px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+}
+
+.status-confirmed {
+
+    background: rgba(34,197,94,0.20);
+
+    color: #86efac;
+
+}
+
+.status-pending {
+
+    background: rgba(251,191,36,0.20);
+
+    color: #fde68a;
+
+}
+
+.status-cancelled {
+
+    background: rgba(239,68,68,0.20);
+
+    color: #fca5a5;
+
+}
+
+/* ---------- BOOKING CARD ---------- */
+
+.booking-card {
+
+    background: rgba(255,255,255,0.10);
+
+    border: 1px solid rgba(255,255,255,0.18);
+
+    border-radius: 24px;
+
+    padding: 28px;
+
+    margin-bottom: 24px;
+
+    backdrop-filter: blur(18px);
+
+    transition: .3s ease;
+
+}
+
+.booking-card:hover {
+
+    transform: translateY(-4px);
+
+    background: rgba(255,255,255,0.15);
+
+}
+
+/* ---------- MODAL ---------- */
+
+.custom-modal {
+
+    background: rgba(255,255,255,0.14);
+
+    border-radius: 30px;
+
+    border: 1px solid rgba(255,255,255,0.20);
+
+    backdrop-filter: blur(28px);
+
+    -webkit-backdrop-filter: blur(28px);
+
+    padding: 32px;
+
+}
+
+/* ---------- ALERT BOX ---------- */
+
+.glass-alert {
+
+    padding: 16px 20px;
+
+    border-radius: 18px;
+
+    margin-bottom: 20px;
+
+    font-weight: 600;
+
+}
+
+.alert-danger {
+
+    background: rgba(239,68,68,0.15);
+
+    color: #fecaca;
+
+    border: 1px solid rgba(239,68,68,0.25);
+
+}
+
+.alert-success {
+
+    background: rgba(34,197,94,0.15);
+
+    color: #bbf7d0;
+
+    border: 1px solid rgba(34,197,94,0.25);
+
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width:768px){
+
+    .glass-form-container{
+
+        padding:28px;
+
+        margin:20px;
+
+    }
+
+    .glass-form-title{
+
+        font-size:1.6rem;
+
+    }
+
+}
+
+@media (max-width:480px){
+
+    .glass-form-container{
+
+        padding:22px;
+
+    }
+
+}
+
+
+/* ===== Dark Text Theme ===== */
+
+body{
+    color:#1e293b;
+}
+
+/* Form Container */
+
+.glass-form-container{
+
+    color:#1e293b;
+
+}
+
+/* Title */
+
+.glass-form-title{
+
+    color:#0f172a;
+
+}
+
+/* Labels */
+
+.glass-label{
+
+    color:#334155;
+
+    font-weight:600;
+
+}
+
+/* Inputs */
+
+.glass-input,
+.glass-select{
+
+    color:#0f172a !important;
+
+    background:rgba(255,255,255,0.45);
+
+}
+
+.glass-input::placeholder{
+
+    color:#64748b;
+
+}
+
+/* Links */
+
+a{
+
+    color:#2563eb;
+
+}
+
+a:hover{
+
+    color:#1d4ed8;
+
+}
+
+/* Login/Register helper text */
+
+.small,
+.text-muted{
+
+    color:#475569 !important;
+
+}
+
+/* Alerts */
+
+.glass-alert{
+
+    color:#0f172a;
+
+}
+
+/* Cards */
+
+.card{
+
+    color:#1e293b;
+
+}
+
+/* Navbar */
+
+.navbar-brand{
+
+    color:#0f172a !important;
+
+}
+
+.nav-link{
+
+    color:#334155 !important;
+
+}
+
+.nav-link:hover{
+
+    color:#0f172a !important;
+
+}
+
+/* Buttons */
+
+.glass-submit{
+
+    color:white;
+
+}
+
+/* Index Page */
+
+.card-body h1,
+.card-body h2{
+
+    color:#0f172a;
+
+}
+
+.card-body p{
+
+    color:#334155;
+
+}
+

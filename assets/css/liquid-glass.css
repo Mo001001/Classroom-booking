@@ -1,0 +1,848 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;600;700;800&display=swap');
+
+/* Design System Tokens */
+:root {
+    --primary-font: 'Inter', -apple-system, sans-serif;
+    --heading-font: 'Outfit', sans-serif;
+    --glass-background: rgba(255, 255, 255, 0.12);
+    --glass-border: 1px solid rgba(255, 255, 255, 0.2);
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    --accent-color: #6366f1;
+    --text-primary: #ffffff;
+    --text-secondary: rgba(255, 255, 255, 0.7);
+    --mesh-color-1: #6366f1;
+    --mesh-color-2: #a855f7;
+    --mesh-color-3: #ec4899;
+    --mesh-color-4: #3b82f6;
+}
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--primary-font);
+    overflow-x: hidden;
+    background: #0f172a;
+    color: var(--text-primary);
+    min-height: 100vh;
+    position: relative;
+    transition: background 0.5s ease;
+}
+
+/* Base Mesh Gradient Container */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    background: radial-gradient(circle at var(--mesh-x, 0%) var(--mesh-y, 0%), var(--mesh-color-1) 0%, transparent 60%),
+        radial-gradient(circle at calc(100% - var(--mesh-x, 0%)) var(--mesh-y, 0%), var(--mesh-color-2) 0%, transparent 60%),
+        radial-gradient(circle at var(--mesh-x, 0%) calc(100% - var(--mesh-y, 0%)), var(--mesh-color-3) 0%, transparent 60%),
+        radial-gradient(circle at calc(100% - var(--mesh-x, 0%)) calc(100% - var(--mesh-y, 0%)), var(--mesh-color-4) 0%, transparent 60%);
+    opacity: 0.4;
+    filter: blur(120px);
+    transition: all 0.5s cubic-bezier(0.1, 0, 0.1, 1);
+}
+
+/* Background Animation */
+.background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.animated-blob {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.7;
+    animation: float 6s ease-in-out infinite;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.3));
+    backdrop-filter: blur(10px);
+}
+
+.blob-1 {
+    width: 300px;
+    height: 300px;
+    top: 10%;
+    left: 10%;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+    animation-delay: 0s;
+}
+
+.blob-2 {
+    width: 200px;
+    height: 200px;
+    top: 60%;
+    right: 10%;
+    background: linear-gradient(45deg, #a8edea, #fed6e3);
+    animation-delay: 2s;
+}
+
+.blob-3 {
+    width: 150px;
+    height: 150px;
+    bottom: 20%;
+    left: 50%;
+    background: linear-gradient(45deg, #ffecd2, #fcb69f);
+    animation-delay: 4s;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    33% {
+        transform: translateY(-20px) rotate(5deg);
+    }
+
+    66% {
+        transform: translateY(10px) rotate(-5deg);
+    }
+}
+
+/* Glass Effect Base */
+.glass-effect {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+/* Navigation */
+.glass-nav {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    width: 90%;
+    max-width: 1200px;
+    background: var(--glass-background);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: var(--glass-border);
+    border-radius: 24px;
+    padding: 12px 24px;
+    box-shadow: var(--glass-shadow);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo span {
+    font-family: var(--heading-font);
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: white;
+    letter-spacing: -0.5px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 8px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: white;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Main Content */
+.main-content {
+    padding-top: 120px;
+}
+
+/* Hero Section */
+.hero-section {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+}
+
+.hero-glass {
+    text-align: center;
+    padding: 80px 60px;
+    background: var(--glass-background);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border: var(--glass-border);
+    border-radius: 40px;
+    box-shadow: var(--glass-shadow);
+    max-width: 800px;
+    animation: fadeInUp 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hero-title {
+    font-family: var(--heading-font);
+    font-size: 5rem;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 24px;
+    letter-spacing: -2px;
+    line-height: 1.1;
+    background: linear-gradient(180deg, #fff 0%, rgba(255, 255, 255, 0.7) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    margin-bottom: 48px;
+    line-height: 1.6;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Glass Container */
+.glass-container {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+/* Buttons */
+.glass-button {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    padding: 14px 28px;
+    color: white;
+    font-family: var(--primary-font);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 15px;
+    letter-spacing: 0.5px;
+}
+
+.glass-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.glass-button.primary {
+    background: white;
+    color: #0f172a;
+    font-size: 18px;
+    padding: 18px 42px;
+    border: none;
+}
+
+.glass-button.primary:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Section Styles */
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: white;
+    margin-bottom: 50px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Components Section */
+.components-section {
+    padding: 80px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.components-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.glass-card {
+    background: var(--glass-background);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: var(--glass-border);
+    border-radius: 28px;
+    padding: 48px 32px;
+    text-align: center;
+    transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--glass-shadow);
+}
+
+.glass-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    background: rgba(255, 255, 255, 0.18);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.glass-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.1) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.glass-card:hover::after {
+    opacity: 1;
+}
+
+.card-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.glass-card h3 {
+    color: white;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.glass-card p {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+/* Effects Section */
+.effects-section {
+    padding: 80px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.effects-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 40px;
+    align-items: start;
+}
+
+/* Showcase Styles (Restored) */
+.glass-showcase {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.showcase-item {
+    height: 150px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.glass-element {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    font-size: 1.1rem;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    transition: all 0.3s ease;
+}
+
+.sample-1 {
+    background: rgba(255, 107, 107, 0.3);
+}
+
+.sample-2 {
+    background: rgba(78, 205, 196, 0.3);
+}
+
+.sample-3 {
+    background: rgba(255, 193, 7, 0.3);
+}
+
+/* Experiment Section */
+.experiment-section {
+    padding: 80px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.experiment-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.experiment-item {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 40px 30px;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    min-height: 250px;
+}
+
+.experiment-item h3 {
+    color: white;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+}
+
+.experiment-item p {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 20px;
+}
+
+.floating-glass {
+    cursor: pointer;
+}
+
+.floating-glass:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(31, 38, 135, 0.3);
+}
+
+.morph-shape {
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    border-radius: 50%;
+    margin: 20px auto;
+    animation: morph 4s ease-in-out infinite;
+}
+
+@keyframes morph {
+
+    0%,
+    100% {
+        border-radius: 50%;
+        transform: rotate(0deg);
+    }
+
+    25% {
+        border-radius: 20%;
+        transform: rotate(90deg);
+    }
+
+    50% {
+        border-radius: 10px;
+        transform: rotate(180deg);
+    }
+
+    75% {
+        border-radius: 30%;
+        transform: rotate(270deg);
+    }
+}
+
+#particle-canvas {
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+/* Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.glass-modal {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 25px;
+    padding: 0;
+    max-width: 500px;
+    width: 90%;
+    max-height: 80vh;
+    overflow: hidden;
+    transform: scale(0.8);
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .glass-modal {
+    transform: scale(1);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 30px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.modal-header h2 {
+    color: white;
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.close-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.close-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.modal-content {
+    padding: 30px;
+}
+
+.modal-content p {
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.modal-actions {
+    text-align: center;
+}
+
+/* Ripple Effect */
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.6);
+    transform: scale(0);
+    animation: ripple-animation 0.6s linear;
+    pointer-events: none;
+}
+
+@keyframes ripple-animation {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-links {
+        gap: 15px;
+    }
+
+    .nav-link {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .effects-container {
+        grid-template-columns: 1fr;
+    }
+
+    .components-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .experiment-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .glass-nav {
+        width: 95%;
+        padding: 10px 20px;
+    }
+
+    .hero-glass {
+        padding: 40px 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .glass-card {
+        padding: 30px 20px;
+    }
+}
+/* --- Enhanced Interactive Card Effects --- */
+
+/* Liquid Card Effect */
+.card-liquid {
+    --liquid-x: 50%;
+    --liquid-y: 50%;
+}
+
+.liquid-overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(circle at var(--liquid-x) var(--liquid-y), 
+                rgba(255, 255, 255, 0.2) 0%, 
+                transparent 40% );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+.card-liquid:hover .liquid-overlay {
+    opacity: 1;
+}
+
+/* Glass Morphism Shimmer */
+.card-morphism {
+    --shimmer-x: 0%;
+}
+
+.shimmer-overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(115deg, 
+                transparent 40%, 
+                rgba(255, 255, 255, 0.15) 50%, 
+                transparent 60%);
+    background-size: 200% 100%;
+    background-position: var(--shimmer-x) 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+.card-morphism:hover .shimmer-overlay {
+    opacity: 1;
+}
+
+/* Fluid Motion Sway */
+.card-fluid:hover {
+    animation: fluidSway 4s ease-in-out infinite;
+}
+
+@keyframes fluidSway {
+    0%, 100% { transform: perspective(1000px) translateY(-12px) rotate(0deg) scale(1.04); }
+    33% { transform: perspective(1000px) translateY(-18px) rotate(2deg) scale(1.05); }
+    66% { transform: perspective(1000px) translateY(-10px) rotate(-2deg) scale(1.03); }
+}
+
+/* Color Blend Hue Shift */
+.card-blend::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    mix-blend-mode: overlay;
+    z-index: 0;
+}
+
+.card-blend:hover::before {
+    opacity: 0.3;
+}
+
+.card-blend:hover {
+    filter: hue-rotate(var(--hue-shift, 0deg));
+}
+
+/* --- New Experiments Styling --- */
+
+/* Magnetic Button */
+.magnetic-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+}
+
+.magnetic-item {
+    transition: transform 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Refraction Lens */
+.lens-container {
+    position: relative;
+    height: 150px;
+    background: linear-gradient(45deg, #333, #111);
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lens-target {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: rgba(255,255,255,0.1);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+.glass-lens {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    backdrop-filter: blur(8px) brightness(1.2);
+    -webkit-backdrop-filter: blur(8px) brightness(1.2);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3), inset 0 0 10px rgba(255,255,255,0.2);
+    cursor: grab;
+    z-index: 2;
+}
+
+.glass-lens:active {
+    cursor: grabbing;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* Frosted Window Clearing */
+.frost-canvas-wrap {
+    position: relative;
+    height: 150px;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+#frost-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    cursor: crosshair;
+}
+
+.frost-reveal {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: white;
+    background: linear-gradient(135deg, #ff0080, #7928ca);
+    z-index: 1;
+}
+
+/* Update Experiment Grid for new items */
+.experiment-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+.experiment-item canvas {
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.2);
+    border-radius: 8px;
+}
