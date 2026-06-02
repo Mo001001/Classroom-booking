@@ -91,9 +91,11 @@ $_SESSION['role']
 $_SESSION['real_name']
 =$user['real_name'];
 
-header(
-'Location: index.php'
-);
+if ($user['role'] === 'admin') {
+    header('Location: admin/bookings.php');
+} else {
+    header('Location: index.php');
+}
 
 exit;
 
